@@ -5,7 +5,27 @@
 	<key>bundleid</key>
 	<string>com.samqiu.workflows.youdao</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>96159F02-1880-4FCF-9B30-02652898058D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>B831172E-379D-444D-AECE-4BA8D2A662DB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>samqiu</string>
 	<key>description</key>
@@ -38,7 +58,7 @@ $results = json_decode($w-&gt;request($url));
 
 
 foreach ($results-&gt;translation as $result) {
-    $w-&gt;result('', '', $result, '', '');
+    $w-&gt;result($result, $result, $result, '', '');
 }
 
 if (count($w-&gt;results()) == 0) {
@@ -58,6 +78,42 @@ echo $w-&gt;toxml();</string>
 			<key>uid</key>
 			<string>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</string>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Translation result copied</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>B831172E-379D-444D-AECE-4BA8D2A662DB</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>96159F02-1880-4FCF-9B30-02652898058D</string>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -66,7 +122,17 @@ echo $w-&gt;toxml();</string>
 		<key>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</key>
 		<dict>
 			<key>ypos</key>
-			<real>130</real>
+			<real>160</real>
+		</dict>
+		<key>96159F02-1880-4FCF-9B30-02652898058D</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>B831172E-379D-444D-AECE-4BA8D2A662DB</key>
+		<dict>
+			<key>ypos</key>
+			<real>160</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
