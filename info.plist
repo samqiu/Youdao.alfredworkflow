@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.samqiu.workflows.youdao</string>
+	<key>connections</key>
+	<dict/>
+	<key>createdby</key>
+	<string>samqiu</string>
+	<key>description</key>
+	<string>Youdao Workflow</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Youdao</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>63</integer>
+				<key>keyword</key>
+				<string>t</string>
+				<key>runningsubtext</key>
+				<string>等一等</string>
+				<key>script</key>
+				<string>require_once('workflows.php');
+
+$w = new Workflows();
+$query = urlencode("{query}");
+ 
+$url = 'http://fanyi.youdao.com/openapi.do?keyfrom=Youdao-workflow&amp;key=1738796775&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q=' . $query;
+$results = json_decode($w-&gt;request($url));
+
+
+foreach ($results-&gt;translation as $result) {
+    $w-&gt;result('', '', $result, '', '');
+}
+
+if (count($w-&gt;results()) == 0) {
+    $w-&gt;result('git', 'na', 'You are awesome!', '没有任务', 'repo', 'no');
+}
+
+echo $w-&gt;toxml();</string>
+				<key>title</key>
+				<string>随便来点文字</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</key>
+		<dict>
+			<key>ypos</key>
+			<real>130</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://samqiu.com/youdao-workflow</string>
+</dict>
+</plist>
