@@ -29,7 +29,7 @@
 	<key>createdby</key>
 	<string>samqiu</string>
 	<key>description</key>
-	<string>Youdao Workflow</string>
+	<string>有道翻译</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -42,11 +42,11 @@
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
-				<integer>63</integer>
+				<integer>62</integer>
 				<key>keyword</key>
-				<string>t</string>
+				<string>f</string>
 				<key>runningsubtext</key>
-				<string>等一等</string>
+				<string>翻译中……</string>
 				<key>script</key>
 				<string>require_once('workflows.php');
 
@@ -56,18 +56,25 @@ $query = urlencode("{query}");
 $url = 'http://fanyi.youdao.com/openapi.do?keyfrom=Youdao-workflow&amp;key=1738796775&amp;type=data&amp;doctype=json&amp;version=1.1&amp;q=' . $query;
 $results = json_decode($w-&gt;request($url));
 
-
 foreach ($results-&gt;translation as $result) {
-    $w-&gt;result($result, $result, $result, '', '');
+    $w-&gt;result($result, $result, $result,  $result, 'icon.png', '');
+}
+
+if (count($results-&gt;web) &gt; 0) {
+    foreach ($results-&gt;web as $web) {
+        $w-&gt;result('', implode(', ', $web-&gt;value), implode(', ', $web-&gt;value), $web-&gt;key, 'icon.png');
+    }
 }
 
 if (count($w-&gt;results()) == 0) {
-    $w-&gt;result('git', 'na', 'You are awesome!', '没有任务', 'repo', 'no');
+    $w-&gt;result('', '', '没有结果', '', 'icon.png', 'no');
 }
 
 echo $w-&gt;toxml();</string>
+				<key>subtext</key>
+				<string>请输入需要翻译的中英文</string>
 				<key>title</key>
-				<string>随便来点文字</string>
+				<string>有道翻译</string>
 				<key>type</key>
 				<integer>1</integer>
 				<key>withspace</key>
@@ -122,7 +129,7 @@ echo $w-&gt;toxml();</string>
 		<key>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</key>
 		<dict>
 			<key>ypos</key>
-			<real>160</real>
+			<real>110</real>
 		</dict>
 		<key>96159F02-1880-4FCF-9B30-02652898058D</key>
 		<dict>
@@ -136,6 +143,6 @@ echo $w-&gt;toxml();</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>https://samqiu.com/youdao-workflow</string>
+	<string>https://samqiu.com/blog/youdao-workflow-for-alfred-v2</string>
 </dict>
 </plist>
