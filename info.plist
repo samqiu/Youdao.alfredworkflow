@@ -57,7 +57,7 @@ $url = 'http://fanyi.youdao.com/openapi.do?keyfrom=Youdao-workflow&amp;key=17387
 $results = json_decode($w-&gt;request($url));
 
 foreach ($results-&gt;translation as $result) {
-    $w-&gt;result($result, $result, $result,  $result, 'icon.png', '');
+    $w-&gt;result($result, $result, $result, $result, 'icon.png', '');
 }
 
 if (count($results-&gt;web) &gt; 0) {
