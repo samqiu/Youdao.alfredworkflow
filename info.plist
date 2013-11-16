@@ -39,6 +39,21 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>96159F02-1880-4FCF-9B30-02652898058D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
@@ -84,6 +99,8 @@ echo $w-&gt;toxml();</string>
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>160E3B74-C1C8-4F4F-8E6E-A64B1CDC48FE</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -107,19 +124,8 @@ echo $w-&gt;toxml();</string>
 			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
 			<string>B831172E-379D-444D-AECE-4BA8D2A662DB</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>autopaste</key>
-				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
-			<key>uid</key>
-			<string>96159F02-1880-4FCF-9B30-02652898058D</string>
+			<key>version</key>
+			<integer>0</integer>
 		</dict>
 	</array>
 	<key>readme</key>
@@ -143,6 +149,6 @@ echo $w-&gt;toxml();</string>
 		</dict>
 	</dict>
 	<key>webaddress</key>
-	<string>https://samqiu.com/blog/youdao-workflow-for-alfred-v2</string>
+	<string>http://samqiu.com/posts/52-youdao-workflow-for-alfred-v2</string>
 </dict>
 </plist>
